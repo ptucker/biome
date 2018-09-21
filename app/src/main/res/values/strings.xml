@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">biome</string>
+
+    <!-- Organelles -->
+    <string name="ribosome">ribosome</string>
+    <string name="nucleus">nucleus</string>
+    <string name="endoplasmic">endoplasmic\nreticulum</string>
+    <string name="golgi">golgi body</string>
+    <string name="membrane">cell membrane</string>
+    <string name="vacuole">vacuole</string>
+    <string name="lysosome">lysosome</string>
+    <string name="mitochondria">mitochondria</string>
+    <string name="cytoplasm">cytoplasm</string>
 </resources>
