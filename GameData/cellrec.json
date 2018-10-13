@@ -1,0 +1,23 @@
+{
+    "cellimage":"C:/Users/ptucker/source/repos/biome/GameData/plant_cell_round1.png",
+    "organelles":[ 
+        {"name":"Cytoplasm", "destx":0,"desty":0},
+        {"name":"Lysosome", "destx":0,"desty":0},
+        {"name":"Mitochondria", "destx":0,"desty":0},
+        {"name":"Vacuole", "destx":0,"desty":0},
+        {"name":"Peroxisome", "destx":0,"desty":0},
+        {"name":"Vesicle", "destx":0,"desty":0},
+        {"name":"Golgi Apparatus", "destx":0,"desty":0},
+        {"name":"Cell Membrane", "destx":0,"desty":0},
+        {"name":"Plasmodesma", "destx":0,"desty":0},
+        {"name":"Cell Wall", "destx":0,"desty":0},
+        {"name":"Nuclear Pore", "destx":0,"desty":0},
+        {"name":"Nuclear Envelope", "destx":0,"desty":0},
+        {"name":"Nucleolus", "destx":0,"desty":0},
+        {"name":"Nucleoplasm", "destx":0,"desty":0},
+        {"name":"Smooth Endoplasmic Reticulum", "destx":0,"desty":0},
+        {"name":"Rough Endoplasmic Reticulum", "destx":0,"desty":0},
+        {"name":"Ribosome", "destx":0,"desty":0},
+        {"name":"Chloroplast", "destx":0,"desty":0}
+    ]
+}

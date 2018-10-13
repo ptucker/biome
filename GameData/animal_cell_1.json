@@ -1,0 +1,14 @@
+{
+    "cellimage":"C:/Users/ptucker/source/repos/biome/GameData/animal_cell_round1.png",
+    "organelles":[ 
+        {"name":"Ribosome", "destx":0,"desty":0},
+        {"name":"Nucleus", "destx":0,"desty":0},
+        {"name":"Endoplasmic Reticulum", "destx":0,"desty":0},
+        {"name":"Golgi Body", "destx":0,"desty":0},
+        {"name":"Cell Membrane", "destx":0,"desty":0},
+        {"name":"Vacuole", "destx":0,"desty":0},
+        {"name":"Lysosome", "destx":0,"desty":0},
+        {"name":"Mitochondria", "destx":0,"desty":0},
+        {"name":"Cytoplasm", "destx":0,"desty":0}
+    ]
+}
