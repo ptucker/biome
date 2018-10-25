@@ -20,13 +20,16 @@ public class ShowCellImage  {
 	void LoadImage() {
 		byte[] fileData;
 	
-		if (File.Exists(CellImage))     {
+		if (File.Exists(CellImage)) {
+			Debug.Log(string.Format("showing {0}", CellImage));
 			fileData = File.ReadAllBytes(CellImage);
 			tex = new Texture2D(2, 2);
 			tex.LoadImage(fileData); //..this will auto-resize the texture dimensions.
 		}
-		else
+		else {
 			Debug.Log(string.Format("can't find {0}", CellImage));
+			tex = Resources.Load<Texture2D>(CellImage);
+		}
 	}
 
 	void AddImageToGameObject() {
@@ -34,7 +37,7 @@ public class ShowCellImage  {
 			Sprite newSprite = Sprite.Create(tex, new Rect(0f, 0f, tex.width, tex.height), new Vector2(0.5f, 0.5f),128f);
 			GameObject sprGameObj = new GameObject();
 			var names = CellImage.Split('/','\\','.');
-			sprGameObj.name = names[names.Length-2];
+			sprGameObj.name = names.Length > 2 ? names[names.Length-2] : CellImage;
 			sprGameObj.AddComponent<SpriteRenderer>();
 			SpriteRenderer sprRenderer = sprGameObj.GetComponent<SpriteRenderer>();
 			float scale = 1250F / tex.height;

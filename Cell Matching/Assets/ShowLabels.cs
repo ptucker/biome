@@ -12,7 +12,7 @@ public class ShowLabels  {
 	public void Show () {
 		LoadOrganelles();
 
-		Debug.Log(string.Format("{0} Organelles Added", OrganelleLabels.Count));
+		//Debug.Log(string.Format("{0} Organelles Added", OrganelleLabels.Count));
 	}
 	
 	private void LoadOrganelles() {

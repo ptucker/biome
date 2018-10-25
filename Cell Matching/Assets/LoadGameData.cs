@@ -16,7 +16,7 @@ public class LoadGameData {
 	// Use this for initialization
 	public void Load () {
 		string gamedata = File.Exists(JsonFile) ? File.ReadAllText(JsonFile) : defaultGameData;
-		Debug.Log(string.Format("file exists? {0}", File.Exists(JsonFile)));
+		//Debug.Log(string.Format("file exists? {0}", File.Exists(JsonFile)));
 
 		CellRecData data = JsonUtility.FromJson<CellRecData>(gamedata);
 
@@ -44,5 +44,7 @@ public class LoadGameData {
 		public OrganelleData[] organelles;
 	}
 
-	public string defaultGameData = "{\"cellimage\":\"C:/Users/ptucker/source/repos/biome/CommonImages/animal_cell_round1.png\", \"organelles\":[ {\"name\":\"Ribosome\", \"destx\":0,\"desty\":0}, {\"name\":\"Nucleus\", \"destx\":0,\"desty\":0}, {\"name\":\"Endoplasmic Reticulum\", \"destx\":0,\"desty\":0}, {\"name\":\"Golgi Body\", \"destx\":0,\"desty\":0}, {\"name\":\"Cell Membrane\", \"destx\":0,\"desty\":0}, {\"name\":\"Vacuole\", \"destx\":0,\"desty\":0}, {\"name\":\"Lysosome\", \"destx\":0,\"desty\":0}, {\"name\":\"Mitochondria\", \"destx\":0,\"desty\":0}, {\"name\":\"Cytoplasm\", \"destx\":0,\"desty\":0}]}\"";
+	public string defaultGameData = "{\"cellimage\":\"animal_cell_round1\", \"organelles\":[{\"name\":\"Ribosome\", \"destx\":-1.7,\"desty\":2.0}, {\"name\":\"Nucleus\", \"destx\":2.0,\"desty\":2.5}, {\"name\":\"Endoplasmic Reticulum\", \"destx\":2.7,\"desty\":0.5}, {\"name\":\"Golgi Body\", \"destx\":1.7,\"desty\":-1.1}, {\"name\":\"Cell Membrane\", \"destx\":0.6,\"desty\":-2.1}, {\"name\":\"Vacuole\", \"destx\":-0.7,\"desty\":-2.1}, {\"name\":\"Lysosome\", \"destx\":-1.8,\"desty\":-1.8}, {\"name\":\"Mitochondria\", \"destx\":-3.1,\"desty\":0.0}, {\"name\":\"Cytoplasm\", \"destx\":-2.1,\"desty\":1.8}]}";
+	
+	// "{\"cellimage\":\"C:/Users/ptucker/source/repos/biome/CommonImages/animal_cell_round1.png\", \"organelles\":[ {\"name\":\"Ribosome\", \"destx\":0,\"desty\":0}, {\"name\":\"Nucleus\", \"destx\":0,\"desty\":0}, {\"name\":\"Endoplasmic Reticulum\", \"destx\":0,\"desty\":0}, {\"name\":\"Golgi Body\", \"destx\":0,\"desty\":0}, {\"name\":\"Cell Membrane\", \"destx\":0,\"desty\":0}, {\"name\":\"Vacuole\", \"destx\":0,\"desty\":0}, {\"name\":\"Lysosome\", \"destx\":0,\"desty\":0}, {\"name\":\"Mitochondria\", \"destx\":0,\"desty\":0}, {\"name\":\"Cytoplasm\", \"destx\":0,\"desty\":0}]}\"";
 }
