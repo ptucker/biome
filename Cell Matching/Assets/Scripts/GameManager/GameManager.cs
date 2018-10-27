@@ -13,6 +13,7 @@ namespace BIOME
 		public static GameManager Instance;
 		
 		public GameObject MainMenu;
+		public GameObject UtilityMenu;
 		
 		public bool developerMode;
 		public GameObject DeveloperMenu;
