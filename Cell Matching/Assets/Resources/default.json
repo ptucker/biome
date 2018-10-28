@@ -1,5 +1,5 @@
 {
-    "cellimage":"../GameData/animal_cell_round1.png",
+    "cellimage":"animal_cell_round1",
     "organelles":[ 
         {"name":"Ribosome", "destx":-1.7,"desty":2.0},
         {"name":"Nucleus", "destx":2.0,"desty":2.5},

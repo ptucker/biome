@@ -1,5 +1,5 @@
 {
-    "cellimage":"C:/Users/ptucker/source/repos/biome/GameData/animal_cell_round2.png",
+    "cellimage":"../GameData/animal_cell_round2.png",
     "organelles":[ 
         {"name":"Nucleus", "destx":0,"desty":0},
         {"name":"Cytoplasm", "destx":0,"desty":0},
