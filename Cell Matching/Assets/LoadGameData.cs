@@ -15,8 +15,14 @@ public class LoadGameData {
 
 	// Use this for initialization
 	public void Load () {
-		string gamedata = File.Exists(JsonFile) ? File.ReadAllText(JsonFile) : defaultGameData;
-		//Debug.Log(string.Format("file exists? {0}", File.Exists(JsonFile)));
+		string gamedata = null;
+		if (File.Exists(JsonFile))
+			gamedata = File.ReadAllText(JsonFile);
+		else {
+			var defaultFile = Resources.Load<TextAsset>("default");
+			gamedata = defaultFile.text;
+			Debug.Log(gamedata);
+		}
 
 		CellRecData data = JsonUtility.FromJson<CellRecData>(gamedata);
 
