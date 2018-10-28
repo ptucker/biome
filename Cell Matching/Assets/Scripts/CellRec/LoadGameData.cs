@@ -21,7 +21,6 @@ public class LoadGameData {
 		else {
 			var defaultFile = Resources.Load<TextAsset>("default");
 			gamedata = defaultFile.text;
-			Debug.Log(gamedata);
 		}
 
 		CellRecData data = JsonUtility.FromJson<CellRecData>(gamedata);
