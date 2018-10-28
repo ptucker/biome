@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayCellMatchGame : MonoBehaviour {
 
-	string jsonFile = @"..\GameData\celldrec.json";
+	string jsonFile = @"..\GameData\cellrec.json";
 
 	List<OrganelleLabel> labels;
 	OrganelleLabel dragTarget;
