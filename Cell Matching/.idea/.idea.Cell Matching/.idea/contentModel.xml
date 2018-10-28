@@ -8,7 +8,6 @@
       <e p="Assets" t="Include">
         <e p="DontDestroyOnLoad.cs" t="Include" />
         <e p="DragHandler.cs" t="Include" />
-        <e p="FadeAndDie.cs" t="Include" />
         <e p="LoadGameData.cs" t="Include" />
         <e p="Organaut" t="Include">
           <e p="Scripts" t="Include">
@@ -27,6 +26,7 @@
             <e p="GameManager_NetworkManager.cs" t="Include" />
             <e p="GameManager_PauseManager.cs" t="Include" />
             <e p="GameManager_SceneManager.cs" t="Include" />
+            <e p="GameManager_UtilityMenuManager.cs" t="Include" />
           </e>
           <e p="UserInterface" t="Include">
             <e p="ButtonManager.cs" t="Include" />
@@ -34,6 +34,7 @@
           </e>
           <e p="Utility" t="Include">
             <e p="DefaultDisabled.cs" t="Include" />
+            <e p="FadeAndDie.cs" t="Include" />
           </e>
         </e>
         <e p="ShowCellImage.cs" t="Include" />

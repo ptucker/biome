@@ -3,72 +3,78 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NotificationBoard : MonoBehaviour
+namespace BIOME
 {
-    [SerializeField] private GameObject _contentBoard;
-    [SerializeField] private GameObject _notification;
-    
-    public float MessageShowTime = 10f;
-    public float MessageFadeTime = 3f;
-
-    private int _notificationCount;
-    private Image _image;
-    
-    
-    private void Start()
+    public class NotificationBoard : MonoBehaviour
     {
-        StartCoroutine(Test());
-        _image = GetComponent<Image>();
-    }
+        [SerializeField] private GameObject _contentBoard;
+        [SerializeField] private GameObject _notification;
 
+        public float MessageShowTime = 10f;
+        public float MessageFadeTime = 3f;
 
-    public void CreateEvent(string message)
-    {
-        GameObject eventObject = Instantiate(_notification, _contentBoard.transform);
-        eventObject.transform.SetParent(_contentBoard.transform);
-        eventObject.transform.SetAsLastSibling();
-        eventObject.GetComponentsInChildren<Text>()[0].text = message;
-        eventObject.GetComponent<FadeAndDie>().ShowTime = MessageShowTime;
-        eventObject.GetComponent<FadeAndDie>().FadeTime = MessageFadeTime;
-        eventObject.GetComponent<FadeAndDie>().Death += NotificationDeath;
-        eventObject.SetActive(true);
-        _notificationCount++;
-        if (_notificationCount == 1) StartCoroutine(Fade(0, 0.6f));
-    }
+        private int _notificationCount;
+        private Image _image;
 
-    private void NotificationDeath()
-    {
-        _notificationCount--;
-        if (_notificationCount < 1)
+        public delegate void NotificationBoardEventHandler(string message);
+        public event NotificationBoardEventHandler NotificationRecieved;
+
+        private void Start()
         {
-            StartCoroutine(Fade(0.6f, 0));
+            StartCoroutine(Test());
+            _image = GetComponent<Image>();
         }
-    }
-	
-    IEnumerator Fade (float fromValue, float toValue, float fadeTimeSeconds=2, float stepsPerSecond=30)
-    {
-        // Little messy. Could be turned into a target with rounding to check when arrived.
-        if(fromValue>toValue)
-        while (_image.color.a>toValue)
+
+
+        public void CreateNotification(string message)
         {
-            _image.color = new Color(0, 0, 0, _image.color.a - 1/(fadeTimeSeconds*stepsPerSecond));
-            yield return new WaitForSeconds(1/stepsPerSecond);
+            GameObject eventObject = Instantiate(_notification, _contentBoard.transform);
+            eventObject.transform.SetParent(_contentBoard.transform);
+            eventObject.transform.SetAsLastSibling();
+            eventObject.GetComponentsInChildren<Text>()[0].text = message;
+            eventObject.GetComponent<FadeAndDie>().ShowTime = MessageShowTime;
+            eventObject.GetComponent<FadeAndDie>().FadeTime = MessageFadeTime;
+            eventObject.GetComponent<FadeAndDie>().Death += NotificationDeath;
+            eventObject.SetActive(true);
+            if (NotificationRecieved != null) NotificationRecieved(message);
+            _notificationCount++;
+            if (_notificationCount == 1) StartCoroutine(Fade(0, 0.6f));
         }
-        else if(fromValue<toValue)
-        while (_image.color.a<toValue)
+
+        private void NotificationDeath()
         {
-            _image.color = new Color(0, 0, 0, _image.color.a + 1/(fadeTimeSeconds*stepsPerSecond));
-            yield return new WaitForSeconds(1/stepsPerSecond);
+            _notificationCount--;
+            if (_notificationCount < 1)
+            {
+                if(isActiveAndEnabled)StartCoroutine(Fade(0.6f, 0));
+            }
         }
-    }
-    
-    IEnumerator Test()
-    {
-        yield return new WaitForSeconds(1);
-        CreateEvent("Hey I'm A Notification!");
-        yield return new WaitForSeconds(1);
-        CreateEvent("Me Too!");
-        yield return new WaitForSeconds(0.5f);
-        CreateEvent("Dont Let Me Fade Away! D:");
+
+        IEnumerator Fade(float fromValue, float toValue, float fadeTimeSeconds = 2, float stepsPerSecond = 30)
+        {
+            // Little messy. Could be turned into a target with rounding to check when arrived.
+            if (fromValue > toValue)
+                while (_image.color.a > toValue) // Fade Out
+                {
+                    _image.color = new Color(0, 0, 0, _image.color.a - 1 / (fadeTimeSeconds * stepsPerSecond));
+                    yield return new WaitForSeconds(1 / stepsPerSecond);
+                }
+            else if (fromValue < toValue)
+                while (_image.color.a < toValue) // Fade In
+                {
+                    _image.color = new Color(0, 0, 0, _image.color.a + 1 / (fadeTimeSeconds * stepsPerSecond));
+                    yield return new WaitForSeconds(1 / stepsPerSecond);
+                }
+        }
+
+        IEnumerator Test()
+        {
+            yield return new WaitForSeconds(1);
+            CreateNotification("Hey I'm A Notification!");
+            yield return new WaitForSeconds(1);
+            CreateNotification("Me Too!");
+            yield return new WaitForSeconds(0.5f);
+            CreateNotification("Dont Let Me Fade Away! D:");
+        }
     }
 }

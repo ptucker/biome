@@ -5,6 +5,7 @@ namespace BIOME
 {
 	[RequireComponent(typeof(GameManager_NetworkManager))]
 	[RequireComponent(typeof(GameManager_SceneManager))]
+	[RequireComponent(typeof(GameManager_UtilityMenuManager))]
 //	[RequireComponent(typeof(GameManager_LevelManager))] // Not added yet
 	[RequireComponent(typeof(GameManager_MainMenuManager))]
 	[RequireComponent(typeof(GameManager_PauseManager))]
