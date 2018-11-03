@@ -130,5 +130,10 @@ namespace BIOME
 			if(SceneManager.GetActiveScene().name=="Main_Menu") Application.Quit();
 			else GetComponent<GameManager_SceneManager>().LoadScene("Main_Menu");
 		}
+
+		public void SendNotification(string message)
+		{
+			GetComponent<GameManager_UtilityMenuManager>().SendNotification(message);
+		}
 	}
 }

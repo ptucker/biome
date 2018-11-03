@@ -21,21 +21,21 @@ namespace BIOME
 
         private void Start()
         {
-            StartCoroutine(Test());
+//            StartCoroutine(Test());
             _image = GetComponent<Image>();
         }
 
 
         public void CreateNotification(string message)
         {
-            GameObject eventObject = Instantiate(_notification, _contentBoard.transform);
-            eventObject.transform.SetParent(_contentBoard.transform);
-            eventObject.transform.SetAsLastSibling();
-            eventObject.GetComponentsInChildren<Text>()[0].text = message;
-            eventObject.GetComponent<FadeAndDie>().ShowTime = MessageShowTime;
-            eventObject.GetComponent<FadeAndDie>().FadeTime = MessageFadeTime;
-            eventObject.GetComponent<FadeAndDie>().Death += NotificationDeath;
-            eventObject.SetActive(true);
+            GameObject notificationObject = Instantiate(_notification, _contentBoard.transform);
+            notificationObject.transform.SetParent(_contentBoard.transform);
+            notificationObject.transform.SetAsFirstSibling();
+            notificationObject.GetComponentInChildren<Text>().text = message;
+            notificationObject.GetComponent<FadeAndDie>().ShowTime = MessageShowTime;
+            notificationObject.GetComponent<FadeAndDie>().FadeTime = MessageFadeTime;
+            notificationObject.GetComponent<FadeAndDie>().Death += NotificationDeath;
+            notificationObject.SetActive(true);
             if (NotificationRecieved != null) NotificationRecieved(message);
             _notificationCount++;
             if (_notificationCount == 1) StartCoroutine(Fade(0, 0.6f));
@@ -50,7 +50,7 @@ namespace BIOME
             }
         }
 
-        IEnumerator Fade(float fromValue, float toValue, float fadeTimeSeconds = 2, float stepsPerSecond = 30)
+        private IEnumerator Fade(float fromValue, float toValue, float fadeTimeSeconds = 2, float stepsPerSecond = 30)
         {
             // Little messy. Could be turned into a target with rounding to check when arrived.
             if (fromValue > toValue)

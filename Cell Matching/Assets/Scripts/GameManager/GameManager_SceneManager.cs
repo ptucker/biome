@@ -27,11 +27,23 @@ namespace BIOME
 
 		void SceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
 		{
-			Debug.Log(scene.name+" Loaded");
+//			Debug.Log(scene.name+" Loaded");
+			if (scene.name == "Main_Menu")
+			{
+				_gameManager.CallEventMenuOpen();
+			}
+			else _gameManager.CallEventMenuClose();
+
+
+			if (scene.name == "Transcribe_Translate")
+			{
+				_gameManager.GetComponent<GameManager_NetworkManager>().JoinLocalAreaNetworkGame();
+			}
 		}
 
 		public void LoadScene(string sceneName)
 		{
+			if (sceneName == "Main_Menu") _gameManager.GetComponent<GameManager_NetworkManager>().LeaveLocalAreaNetworkGame();
 			SceneManager.LoadSceneAsync(sceneName);
 		}
 

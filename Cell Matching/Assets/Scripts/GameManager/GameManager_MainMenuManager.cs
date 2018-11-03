@@ -7,6 +7,7 @@ namespace BIOME
 	public class GameManager_MainMenuManager : MonoBehaviour
 	{
 		private GameManager _gameManager;
+		private GameObject _content;
 		
 		
 		private void OnEnable()
@@ -25,16 +26,17 @@ namespace BIOME
 		void Setup()
 		{
 			_gameManager = GetComponent<GameManager>();
+			_content = _gameManager.MainMenu.transform.Find("content").gameObject;
 		}
 
 		void OpenMenu()
 		{
-			_gameManager.MainMenu.SetActive(true);
+			_content.SetActive(true);
 		}
 
 		void CloseMenu()
 		{
-			_gameManager.MainMenu.SetActive(false);
+			_content.SetActive(false);
 		}
 	}
 }
